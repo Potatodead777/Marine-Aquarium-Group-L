@@ -8,24 +8,93 @@
 </head>
 <body>
     <section class="container">
-        <div id="toolbar">
-            <h1>Draw.</h1>
-            <label for="stroke">Stroke</label>
-            <input id="stroke" name='stroke' type="color">
-            <label for="lineWidth">Line Width</label>
-            <input id="lineWidth" name='lineWidth' type="number" value="5">
-            <button id="clear">Clear</button>
-        </div>
+
         <div class="canvas-container">
 
+            <!--Modal Dialog Boxes-->
+            <dialog id="modalDelete" class="modal">
+                <div id="dialogDelete" class="modal-content">
+                    <h1 style="font-size: 60px; text-align: center; margin: 0%; box-shadow: 10px;">Clear Canvas?</h1>
+                    <div>                   
+                         <p style="font-size: 24px; text-align: center;">Are you sure you want to clear the drawing?</p>
+                    </div>
+                     <div id="deleteButtons">
+                        <button id="deleteYes" name="deleteYes" type="button">Yes</button>
+                        <button id="deleteNo" name="deleteNo" type="button">No</button>
+                    </div>
+                </div>  
+            </dialog>
+            <dialog id="modalSave" class="modal">
+                <div id="dialogSave" class="modal-content">
+                    <h1 style="font-size: 60px; text-align: center; margin: 0%; box-shadow: 10px;">Save Canvas?</h1>
+                    <div>                   
+                         <p style="font-size: 24px; text-align: center;">Are you finished with this artwork?</p>
+                    </div>
+                     <div>
+                        <button id="saveYes" name="saveYes" type="button">Yes</button>
+                        <button id="saveNo" name="saveNo" type="button">No</button>
+                    </div>
+                </div>  
+            </dialog>
+            <dialog id="modalStart" class="modal">
+                <div id="dialogStart" class="modal-content">
+                    <h1 style="font-size: 60px; text-align: center; margin: 0%; box-shadow: 10px;">Welcome</h1>
+                    <div>                   
+                         <p style="font-size: 24px; text-align: center;">We need some details before you start drawing!</p>
+                    </div>
+                    <form class="form" method="dialog" onsubmit="storeDetails()">
+                        <!--date, age, name of school, year group, device id, location-->
+                            <label for="userAge">Age: </label>
+                            <input type="number" id="userAge" name="userAge">
+                            <br>
+                            <label for="userSchool">School: </label>
+                            <input type="text" name="userSchool" id="userSchool">
+                            <br>
+                            <label for="userYear">Year Group: </label>
+                            <input  type="number" name="userYear" id="userYear">
+                            <br>
+                            <button class="button" type="submit">Start</button>   
+                    </form>    
+                </div>  
+            </dialog>
+            <dialog id="modalWidth" class="modal">
+                <div id="dialogWidth" class="modal-content">
+                     <div id="widthButtons">
+                        <button id="widthSmall" name="widthSmall" type="button">Small</button>
+                        <button id="widthMedium" name="widthMedium" type="button">Medium</button>
+                        <button id="widthLarge" name="widthLarge" type="button">Large</button>
+                    </div>
+                </div>  
+            </dialog>
+            <dialog id="modalColour" class="modal">
+                <div id="dialogColour" class="modal-content">
+                     <div id="colourButtons">
+                        <button id="colourBlue" name="colourBlue" type="button">Blue</button>
+                        <button id="colourRed" name="colourRed" type="button">Red</button>
+                        <button id="colourBlack" name="colourBlack" type="button">Black</button>
+                        <button id="colourYellow" name="colourYellow" type="button">Yellow</button>
+                        <button id="colourCyan" name="colourCyan" type="button">Cyan</button>
+                        <button id="colourPink" name="colourPink" type="button">Pink</button>
+                        <button id="colourGreen" name="colourGreen" type="button">Green</button>
+
+                    </div>
+                </div>  
+            </dialog>
+            <!--End Of Dialog Boxes-->
+
             <canvas id='canvas'></canvas>
-           <button id='saveButton'><img src="icons/saveicon.png" width="85%" height="85%"></button> 
-           <button id='deleteButton'><img src="icons/trashicon.png" width="100%" height="85%"></button> 
-
+           <button id='saveButton' style="font-size:40px">Save</button> 
+           <button id='deleteButton' style="font-size:40px">Clear</button> 
+           <div id="toolbar">
+            <button id="colour" name="colour" type="button">Colour</button>
+            <button id="width" name="width" type="button">Width</button>
+            <button id="brush" name="Eraser" type="button">Brush</button>
+            <button id="erase" name="Eraser" type="button">Eraser</button>
+        </div>
            </div>  
-
 
     </section>
     <script src="./index.js"></script>
+      
 </body>
 </html>
